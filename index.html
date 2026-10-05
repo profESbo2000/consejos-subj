@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Sé un Experto Dando Consejos en Español!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        sans: ['Fredoka', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            teal: '#0d9488',
+                            amber: '#f59e0b',
+                            purple: '#8b5cf6',
+                            rose: '#f43f5e',
+                            dark: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(#1e293b 2px, transparent 2px);
+            background-size: 32px 32px;
+        }
+
+        .card-eval {
+            background: #1e293b;
+            border-width: 2px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            border-radius: 1.25rem;
+        }
+
+        .correct-bg { background-color: #064e3b !important; border-color: #10b981 !important; color: #a7f3d0 !important; }
+        .incorrect-bg { background-color: #881337 !important; border-color: #f43f5e !important; color: #fecdd3 !important; }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col font-sans pb-16">
+
+    <!-- Header Principal -->
+    <header class="bg-slate-900 border-b-2 border-slate-700 px-6 py-5 shadow-xl sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl text-teal-400">💡</span>
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-heading font-extrabold tracking-wider text-teal-400 uppercase leading-none">
+                        Guía Interactiva: Dar Consejos
+                    </h1>
+                    <p class="text-xs font-semibold text-slate-400 mt-1">
+                        Aprende, Practica y Domina los Consejos en Español • 20 Puntos Totales
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl">
+                <i class="fa-solid fa-trophy text-amber-400 text-lg"></i>
+                <span id="global-score" class="font-heading font-bold text-amber-300">0 / 20 pts</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full space-y-10">
+
+        <!-- ========================================================= -->
+        <!-- SECCIÓN 1: TEORÍA Y REGLA DE ORO (MEMORABLE Y VISUAL) -->
+        <!-- ========================================================= -->
+        <section class="card-eval border-teal-500/40 p-6 sm:p-8 space-y-6">
+            <div class="flex items-center justify-between border-b border-teal-500/30 pb-4">
+                <div class="flex items-center gap-4">
+                    <div class="relative w-14 h-14 bg-teal-600/30 rounded-2xl border border-teal-400/50 flex items-center justify-center shrink-0 shadow-lg">
+                        <span class="text-3xl animate-bounce">🧠</span>
+                    </div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-heading text-teal-300">1. Laboratorio de Teoría</h2>
+                        <p class="text-xs text-slate-400">¿Cómo dar consejos de forma precisa?</p>
+                    </div>
+                </div>
+                <span class="bg-teal-900/60 text-teal-300 text-xs px-3 py-1 rounded-full border border-teal-500/40 font-bold">Conceptos Clave</span>
+            </div>
+
+            <!-- Visual Flashcard: Fórmula con SUBJUNTIVO -->
+            <div class="bg-slate-900/80 p-5 rounded-2xl border border-teal-500/30 space-y-4">
+                <h3 class="text-lg font-heading font-bold text-teal-400 flex items-center gap-2">
+                    <i class="fa-solid fa-key"></i> La Fórmula de las 2 Personas (+ QUE)
+                </h3>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    Cuando aconsejas a otra persona usando un conector de influencias, usas <strong>SUBJUNTIVO</strong> porque hay <span class="text-teal-300 font-bold">2 Sujetos diferentes</span> unidos por la palabra <span class="text-amber-400 font-bold">"que"</span>.
+                </p>
+
+                <!-- Ilustración Dinámica del Diálogo -->
+                <div class="bg-slate-950 p-4 rounded-xl border border-teal-900 flex flex-col md:flex-row items-center justify-around gap-4 my-2">
+                    <div class="text-center">
+                        <span class="text-4xl">🗣️</span>
+                        <p class="text-xs text-teal-400 font-bold mt-1">Sujeto 1 (Yo)</p>
+                        <p class="text-xs text-slate-400">"Te aconsejo..."</p>
+                    </div>
+                    <div class="text-amber-400 font-extrabold text-2xl">+ QUE +</div>
+                    <div class="text-center">
+                        <span class="text-4xl">🚶‍♂️</span>
+                        <p class="text-xs text-purple-400 font-bold mt-1">Sujeto 2 (Tú)</p>
+                        <p class="text-xs text-slate-400">"...no <strong class="text-purple-300">cruces</strong> esta línea"</p>
+                    </div>
+                </div>
+
+                <!-- Lista de Expresiones clave -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div class="bg-slate-800/80 p-3 rounded-lg border border-teal-500/20">
+                        <span class="text-teal-300 font-bold block mb-1">Te aconsejo que... + Subjuntivo</span>
+                        <em>Ej: Te aconsejo que no cruces esta línea.</em>
+                    </div>
+                    <div class="bg-slate-800/80 p-3 rounded-lg border border-teal-500/20">
+                        <span class="text-teal-300 font-bold block mb-1">Te recomiendo que... + Subjuntivo</span>
+                        <em>Ej: Te recomiendo que descanses hoy.</em>
+                    </div>
+                    <div class="bg-slate-800/80 p-3 rounded-lg border border-teal-500/20">
+                        <span class="text-teal-300 font-bold block mb-1">Te sugiero que... + Subjuntivo</span>
+                        <em>Ej: Te sugiero que leas este libro.</em>
+                    </div>
+                    <div class="bg-slate-800/80 p-3 rounded-lg border border-teal-500/20">
+                        <span class="text-teal-300 font-bold block mb-1">Lo mejor es que... + Subjuntivo</span>
+                        <em>Ej: Lo mejor es que salgas de fiesta.</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Excepciones y variaciones (Infinitivo y Condicional) -->
+            <div class="bg-amber-950/30 p-4 rounded-xl border border-amber-500/30 space-y-2 text-xs">
+                <h4 class="font-bold text-amber-400 text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-triangle-exclamation"></i> ¡Cuidado con las variaciones!
+                </h4>
+                <ul class="list-disc list-inside space-y-1 text-slate-300">
+                    <li><strong>Sin "QUE":</strong> Si usas directamente el verbo sin la conjunción "que", se usa <strong>INFINITIVO</strong>. <br><em class="text-amber-200">(Ej: Te recomiendo <u>visitar</u> las calas).</em></li>
+                    <li><strong>Estructuras Condicionales:</strong> Expresiones como <em>"Yo en tu lugar..."</em> o <em>"Yo que tú..."</em> se combinan con <strong>CONDICIONAL SIMPRE</strong>. <br><em class="text-amber-200">(Ej: Yo en tu lugar <u>diría</u> la verdad / Yo que tú no <u>dejaría</u> esto aquí).</em></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- SECCIÓN 2: COMPRENSIÓN AUDITIVA (PÚRPURA) -->
+        <!-- ========================================================= -->
+        <section class="card-eval border-purple-500/40 p-6 sm:p-8 space-y-6">
+            <div class="flex items-center justify-between border-b border-purple-500/30 pb-4">
+                <div class="flex items-center gap-4">
+                    <div class="relative w-14 h-14 bg-purple-600/30 rounded-2xl border border-purple-400/50 flex items-center justify-center shrink-0 shadow-lg">
+                        <span class="text-3xl animate-pulse">🎧</span>
+                    </div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-heading text-purple-300">2. Comprensión Auditiva</h2>
+                        <p class="text-xs text-slate-400">Escucha el mensaje de voz de Sofía para su amigo Lucas y responde.</p>
+                    </div>
+                </div>
+                <span class="bg-purple-900/60 text-purple-300 text-xs px-3 py-1 rounded-full border border-purple-500/40 font-bold">2 Puntos</span>
+            </div>
+
+            <!-- Reproductor de Audio -->
+            <div class="bg-purple-950/40 p-4 rounded-xl border border-purple-500/30 flex items-center justify-center">
+                <audio controls src="audio_test.mp3" class="w-full max-w-xl h-12 accent-purple-500 rounded-lg">
+                </audio>
+            </div>
+
+            <!-- Transcripción Ocultable -->
+            <details class="bg-slate-900/60 rounded-xl border border-purple-900/50 transition">
+                <summary class="p-3 text-xs font-bold text-purple-300 cursor-pointer flex items-center justify-between select-none">
+                    <span><i class="fa-solid fa-eye text-purple-400 mr-2"></i> Mostrar / Ocultar Transcripción de Apoyo</span>
+                    <i class="fa-solid fa-chevron-down text-slate-500"></i>
+                </summary>
+                <div class="p-4 border-t border-purple-900/40 text-sm text-slate-300 italic leading-relaxed space-y-2">
+                    <p>
+                        "¡Hola, Lucas! ¿Cómo estás? Me contaste que te sientes súper agotado por el trabajo y que estás organizando tus vacaciones. ¡De verdad necesitas desconectarte un poco! Mira, te aconsejo que vayas a la zona norte del país este año. Es un lugar hermoso, lleno de naturaleza y súper tranquilo. Además, si al final decides ir por allí y te alojas cerca de la costa, te recomiendo visitar las calas y playas más escondidas; el agua es cristalina y casi no hay turistas.
+                    </p>
+                    <p>
+                        Por cierto, sobre lo que me dijiste del estrés que sientes antes de tus presentaciones en la oficina, me acordé de algo curioso. Mi madre siempre me recomienda que ensaye en solitario enfrente del espejo antes de cada concierto o exposición importante. Ella es cantante profesional, así que sabe muy bien lo que dice y a mí siempre me funciona para calmar los nervios.
+                    </p>
+                    <p>
+                        Por último, respecto al malentendido que tuviste ayer con tu jefe en la reunión, yo en tu lugar diría siempre la verdad y hablaría con él con total transparencia; eso aclara todo rápido y te abrirá muchas puertas en la empresa. En fin, piénsalo bien. Lo mejor es que descanses esta noche y no le des tantas vueltas. ¡Un abrazo enorme y hablamos luego!"
+                    </p>
+                </div>
+            </details>
+
+            <!-- Preguntas de Audio -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-purple-900/40 space-y-2">
+                    <p class="text-sm font-semibold">1. ¿Qué lugar aconseja Sofía a Lucas para sus vacaciones?</p>
+                    <div class="space-y-1.5 text-xs">
+                        <button onclick="checkMCQ(this, 'act1-1', true)" class="act1-1 w-full text-left bg-slate-800 hover:bg-purple-900/40 p-2.5 rounded-lg border border-purple-500/30 transition">A) Que vaya a la zona norte del país y busque sus calas tranquilo.</button>
+                        <button onclick="checkMCQ(this, 'act1-1', false)" class="act1-1 w-full text-left bg-slate-800 hover:bg-purple-900/40 p-2.5 rounded-lg border border-purple-500/30 transition">B) Que visite las playas más céntricas y concurridas de la ciudad.</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-purple-900/40 space-y-2">
+                    <p class="text-sm font-semibold">2. ¿Qué técnica sugiere la madre cantante de Sofía para los nervios?</p>
+                    <div class="space-y-1.5 text-xs">
+                        <button onclick="checkMCQ(this, 'act1-2', false)" class="act1-2 w-full text-left bg-slate-800 hover:bg-purple-900/40 p-2.5 rounded-lg border border-purple-500/30 transition">A) Que no repase la presentación hasta el momento final.</button>
+                        <button onclick="checkMCQ(this, 'act1-2', true)" class="act1-2 w-full text-left bg-slate-800 hover:bg-purple-900/40 p-2.5 rounded-lg border border-purple-500/30 transition">B) Que ensaye en solitario frente al espejo.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- SECCIÓN 3: PRÁCTICA RÁPIDA (ÁMBAR) -->
+        <!-- ========================================================= -->
+        <section class="card-eval border-amber-500/40 p-6 sm:p-8 space-y-6">
+            <div class="flex items-center justify-between border-b border-amber-500/30 pb-4">
+                <div class="flex items-center gap-4">
+                    <div class="relative w-14 h-14 bg-amber-600/30 rounded-2xl border border-amber-400/50 flex items-center justify-center shrink-0 shadow-lg">
+                        <span class="text-3xl animate-bounce">⚡</span>
+                    </div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-heading text-amber-300">3. Práctica de Estructura</h2>
+                        <p class="text-xs text-slate-400">Selecciona el modo correcto según la regla aprendida.</p>
+                    </div>
+                </div>
+                <span class="bg-amber-900/60 text-amber-300 text-xs px-3 py-1 rounded-full border border-amber-500/40 font-bold">8 Puntos</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-amber-900/40 space-y-2">
+                    <p class="text-xs font-semibold">1. Te aconsejo que <span class="text-amber-400 font-bold">(ir)</span> a la zona norte.</p>
+                    <div class="flex gap-2 text-xs">
+                        <button onclick="checkPrac(this, 'act2-1', false)" class="act2-1 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">A) vas</button>
+                        <button onclick="checkPrac(this, 'act2-1', true)" class="act2-1 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">B) vayas</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-amber-900/40 space-y-2">
+                    <p class="text-xs font-semibold">2. Te recomiendo <span class="text-amber-400 font-bold">(visitar)</span> las calas. <em>(Sin "que")</em></p>
+                    <div class="flex gap-2 text-xs">
+                        <button onclick="checkPrac(this, 'act2-2', true)" class="act2-2 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">A) visitar</button>
+                        <button onclick="checkPrac(this, 'act2-2', false)" class="act2-2 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">B) visites</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-amber-900/40 space-y-2">
+                    <p class="text-xs font-semibold">3. Cristina, te recomiendo que <span class="text-amber-400 font-bold">(dejar)</span> a Felipe.</p>
+                    <div class="flex gap-2 text-xs">
+                        <button onclick="checkPrac(this, 'act2-3', true)" class="act2-3 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">A) dejes</button>
+                        <button onclick="checkPrac(this, 'act2-3', false)" class="act2-3 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">B) dejas</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-amber-900/40 space-y-2">
+                    <p class="text-xs font-semibold">4. Yo en tu lugar <span class="text-amber-400 font-bold">(decir)</span> la verdad.</p>
+                    <div class="flex gap-2 text-xs">
+                        <button onclick="checkPrac(this, 'act2-4', false)" class="act2-4 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">A) diga</button>
+                        <button onclick="checkPrac(this, 'act2-4', true)" class="act2-4 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">B) diría</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-amber-900/40 space-y-2">
+                    <p class="text-xs font-semibold">5. Yo que tú no <span class="text-amber-400 font-bold">(dejar)</span> los juguetes en el suelo.</p>
+                    <div class="flex gap-2 text-xs">
+                        <button onclick="checkPrac(this, 'act2-5', true)" class="act2-5 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">A) dejaría</button>
+                        <button onclick="checkPrac(this, 'act2-5', false)" class="act2-5 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">B) dejes</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-amber-900/40 space-y-2">
+                    <p class="text-xs font-semibold">6. Te sugiero que <span class="text-amber-400 font-bold">(leer)</span> esa novela.</p>
+                    <div class="flex gap-2 text-xs">
+                        <button onclick="checkPrac(this, 'act2-6', true)" class="act2-6 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">A) leas</button>
+                        <button onclick="checkPrac(this, 'act2-6', false)" class="act2-6 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">B) lees</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-amber-900/40 space-y-2">
+                    <p class="text-xs font-semibold">7. Ella siempre me aconseja que <span class="text-amber-400 font-bold">(contar)</span> a los niños.</p>
+                    <div class="flex gap-2 text-xs">
+                        <button onclick="checkPrac(this, 'act2-7', false)" class="act2-7 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">A) cuento</button>
+                        <button onclick="checkPrac(this, 'act2-7', true)" class="act2-7 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">B) cuente</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-amber-900/40 space-y-2">
+                    <p class="text-xs font-semibold">8. Lo mejor es que tú <span class="text-amber-400 font-bold">(salir)</span> esta noche.</p>
+                    <div class="flex gap-2 text-xs">
+                        <button onclick="checkPrac(this, 'act2-8', true)" class="act2-8 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">A) salgas</button>
+                        <button onclick="checkPrac(this, 'act2-8', false)" class="act2-8 flex-1 bg-slate-800 hover:bg-amber-900/40 py-2 rounded-lg border border-amber-500/30">B) sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- SECCIÓN 4: EJERCICIO FINAL DE CONJUGACIÓN (AZUL) -->
+        <!-- ========================================================= -->
+        <section class="card-eval border-blue-500/40 p-6 sm:p-8 space-y-6">
+            <div class="flex items-center justify-between border-b border-blue-500/30 pb-4">
+                <div class="flex items-center gap-4">
+                    <div class="relative w-14 h-14 bg-blue-600/30 rounded-2xl border border-blue-400/50 flex items-center justify-center shrink-0 shadow-lg">
+                        <span class="text-3xl animate-pulse">✍️</span>
+                    </div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-heading text-blue-300">4. Ejercicio 19: Conjugación Maestra</h2>
+                        <p class="text-xs text-slate-400">Escribe la forma verbal exacta (Indicativo, Subjuntivo, Infinitivo o Condicional).</p>
+                    </div>
+                </div>
+                <span class="bg-blue-900/60 text-blue-300 text-xs px-3 py-1 rounded-full border border-blue-500/40 font-bold">10 Puntos</span>
+            </div>
+
+            <div class="space-y-3 text-sm">
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q1" class="font-medium">1. Te aconsejo que <span class="text-blue-400 font-bold">(ir)</span> a la zona norte del país.</label>
+                    <input type="text" id="q1" data-ans="vayas" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q2" class="font-medium">2. Te recomiendo <span class="text-blue-400 font-bold">(visitar)</span> las calas y playas.</label>
+                    <input type="text" id="q2" data-ans="visitar" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q3" class="font-medium">3. Mi madre siempre me recomienda que <span class="text-blue-400 font-bold">(ensayar)</span> en solitario.</label>
+                    <input type="text" id="q3" data-ans="ensaye" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q4" class="font-medium">4. Yo en tu lugar <span class="text-blue-400 font-bold">(decir)</span> siempre la verdad.</label>
+                    <input type="text" id="q4" data-ans="diría" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q5" class="font-medium">5. Cristina, te recomiendo que <span class="text-blue-400 font-bold">(dejar)</span> a Felipe.</label>
+                    <input type="text" id="q5" data-ans="dejes" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q6" class="font-medium">6. Yo que tú no <span class="text-blue-400 font-bold">(dejar)</span> los juguetes en el suelo.</label>
+                    <input type="text" id="q6" data-ans="dejaría" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q7" class="font-medium">7. Te sugiero que <span class="text-blue-400 font-bold">(leer)</span> esa novela.</label>
+                    <input type="text" id="q7" data-ans="leas" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q8" class="font-medium">8. Ella siempre me aconseja que <span class="text-blue-400 font-bold">(contar)</span> a los niños.</label>
+                    <input type="text" id="q8" data-ans="cuente" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q9" class="font-medium">9. Te recomiendo <span class="text-blue-400 font-bold">(poner)</span> los zapatos sucios en el balcón.</label>
+                    <input type="text" id="q9" data-ans="poner" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="bg-slate-900/50 p-3.5 rounded-xl border border-blue-900/40 flex flex-wrap items-center justify-between gap-3">
+                    <label for="q10" class="font-medium">10. Lo mejor es que tú <span class="text-blue-400 font-bold">(salir)</span> de fiesta esta noche.</label>
+                    <input type="text" id="q10" data-ans="salgas" placeholder="Escribe aquí" class="bg-slate-800 border-2 border-blue-500/30 rounded-lg px-3 py-1.5 text-blue-300 w-36 text-center font-bold focus:outline-none focus:border-blue-400">
+                </div>
+            </div>
+
+            <div class="pt-4 flex justify-center">
+                <button onclick="checkFillIn()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3 rounded-xl shadow-lg transition flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Validar Respuestas Finales
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        let scores = { act1: 0, act2: 0, act3: 0 };
+
+        function updateGlobalScore() {
+            const total = scores.act1 + scores.act2 + scores.act3;
+            document.getElementById('global-score').innerText = `${total} / 20 pts`;
+
+            if (total === 20) {
+                confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
+            }
+        }
+
+        /* --- ACTIVIDAD 1 --- */
+        function checkMCQ(btn, groupClass, isCorrect) {
+            const buttons = document.querySelectorAll(`.${groupClass}`);
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.add('opacity-50', 'cursor-not-allowed');
+            });
+
+            if (isCorrect) {
+                btn.classList.remove('opacity-50', 'bg-slate-800');
+                btn.classList.add('correct-bg');
+                scores.act1++;
+            } else {
+                btn.classList.remove('opacity-50', 'bg-slate-800');
+                btn.classList.add('incorrect-bg');
+            }
+            updateGlobalScore();
+        }
+
+        /* --- ACTIVIDAD 2 --- */
+        function checkPrac(btn, groupClass, isCorrect) {
+            const buttons = document.querySelectorAll(`.${groupClass}`);
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.add('opacity-50', 'cursor-not-allowed');
+            });
+
+            if (isCorrect) {
+                btn.classList.remove('opacity-50', 'bg-slate-800');
+                btn.classList.add('correct-bg');
+                scores.act2++;
+            } else {
+                btn.classList.remove('opacity-50', 'bg-slate-800');
+                btn.classList.add('incorrect-bg');
+            }
+            updateGlobalScore();
+        }
+
+        /* --- ACTIVIDAD 3 (EJERCICIO 19 COMPLETO) --- */
+        function normalizeText(str) {
+            return str.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function checkFillIn() {
+            const inputs = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'];
+            let currentScore = 0;
+
+            inputs.forEach(id => {
+                const el = document.getElementById(id);
+                const val = normalizeText(el.value);
+                const target = normalizeText(el.getAttribute('data-ans'));
+
+                if (val === target) {
+                    el.className = "bg-slate-800 border-2 rounded-lg px-3 py-1.5 w-36 text-center font-bold text-sm focus:outline-none correct-bg";
+                    currentScore++;
+                } else {
+                    el.className = "bg-slate-800 border-2 rounded-lg px-3 py-1.5 w-36 text-center font-bold text-sm focus:outline-none incorrect-bg";
+                }
+            });
+
+            scores.act3 = currentScore;
+            updateGlobalScore();
+        }
+    </script>
+</body>
+</html>
